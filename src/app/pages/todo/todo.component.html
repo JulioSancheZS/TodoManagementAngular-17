@@ -1,0 +1,74 @@
+<div class="flex flex-col">
+    <div class="flex justify-between items-center">
+        <h2 class="font-bold text-xl">Manage Todos</h2>
+        <button class="btn btn-icon btn-rounded btn-primary" (click)="openSlidePanel()">
+            <i class="ri-add-line ri-lg"></i>
+            Add Todo
+        </button>
+    </div>
+
+    <div class="mt-4 inline-flex gap-2">
+      <button class="btn btn-sm btn-outline-primary btn-primary" (click)="filtroPorEstado(null)">
+        Todos
+     </button>
+      @for(item of estado; track $index ){
+          <button (click)="filtroPorEstado(item.idEstado)" class="btn btn-sm" [class]="{'btn-outline-primary btn-primary': item.description == 'Backlog'}">
+            {{item.description}}
+          </button>
+      }
+<!--   
+        <button class="btm btn-sm btn-outline-secondary" (click)="filtroPorEstado(1)">
+          Backlog
+       </button> -->
+    </div>
+
+    <div class="mt-3 bg-white shadow">
+        @for(item of todos; track $index){
+            <app-todo-card [type]="item.estadoTarea" [todo]="item" (click)="onLoadForm(item)"></app-todo-card>
+        }@empty {
+          <p>No hay Tareas </p>
+        }
+    </div>
+</div>
+
+<app-slide-panel [headerText]="'Todo Detalles'" [isOpen]="isSlidePanelOpen" (onClose)="onCloseSlidePanel()">
+    <form [formGroup]="todoForm" (ngSubmit)="onSubmit()" autocomplete="off" novalidate>
+        <div class="form-group mb-3">
+          <label for="title" class="form-label">Titulo</label>
+          <input type="text" id="titulo" class="form-control" 
+          [class]="{'invalid': todoForm.get('titulo')?.hasError('required') && todoForm.get('titulo')?.touched, 'valid':todoForm.get('titulo')?.valid}"
+          placeholder="titulo" formControlName="titulo">
+        @if (todoForm.get('titulo')?.hasError('required') && todoForm.get('titulo')?.touched) {
+          <span class="form-error">Title is required.</span>
+          }
+        </div>
+        <div class="form-group mb-3">
+          <label for="descripcion" class="form-label">Descripcion</label>
+          <textarea name="" rows="10" class="form-control" 
+          [class]="{'invalid': todoForm.get('descripcion')?.hasError('required') && todoForm.get('descripcion')?.touched, 'valid':todoForm.get('descripcion')?.valid}"
+          placeholder="descripcion" formControlName="descripcion"></textarea>
+          @if (todoForm.get('descripcion')?.hasError('required') && todoForm.get('descripcion')?.touched) {
+            <span class="form-error">Description is required.</span>
+
+          }
+        </div>
+        <div class="form-group mb-3">
+          <label for="status" class="form-label">Status</label>
+          <select class="form-select"
+          [class]="{'invalid': todoForm.get('status')?.hasError('required') && todoForm.get('status')?.touched, 'valid':todoForm.get('status')?.valid}"
+         formControlName="status">
+         @for (item of estado; track $index) {
+          <option [value]="item.idEstado">{{item.description}}</option>
+          }
+          </select>
+          @if (todoForm.get('status')?.hasError('required') && todoForm.get('status')?.touched) {
+            <span class="form-error">status is required.</span>
+            }
+       
+        </div>
+        <div class="flex gap-2">
+          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="button" class="btn btn-secondary" (click)="onCloseSlidePanel()">Cancel</button>
+        </div>
+      </form>
+</app-slide-panel>

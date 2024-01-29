@@ -1,27 +1,34 @@
-# TodoAppAngular
+## Descripción
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.1.
+TodoManagement es una aplicación simple de gestión de tareas desarrollada con Angular 17. Utiliza Tailwind CSS para el diseño web y tiene un backend construido en .NET con SQL Server como base de datos.
 
-## Development server
+## Tecnologías Utilizadas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Angular 17:** El frontend de la aplicación está desarrollado en Angular, un framework de desarrollo web.
+- **Tailwind CSS:** Se utiliza para el diseño y la estilización de la interfaz de usuario, proporcionando un estilo moderno y responsivo.
+- **.NET [Ir al Backend](https://github.com/JulioSancheZS/TodoManagementAPI):**  El backend de la aplicación está construido en .NET, que maneja la lógica del servidor.
+- **SQL Server:** La información de las tareas se almacena en una base de datos SQL Server.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Experiencia y Aprendizaje
 
-## Build
+Esta aplicación, TodoManagement, ha sido fundamental para mi comprensión de las bases de Angular 17. A través de su desarrollo, he adquirido conocimientos prácticos sobre la estructura de un proyecto Angular 17, la creación de componentes, la gestión de servicios, y la interacción con un backend construido en .NET.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Además, la integración de Tailwind CSS ha proporcionado una experiencia valiosa en el diseño y estilización de la interfaz de usuario, mejorando mi comprensión de cómo trabajar con estilos de manera eficiente en el entorno de desarrollo Angular.
 
-## Running unit tests
+![Aprendizaje con TodoAppAngular](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWExcWt6cTQ4MnloZjdzczQ1MXBqdXpqdmczdDlhamFpNnViNDF1MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2IudUHdI075HL02Pkk/giphy.gif)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Login
+![imagen01](img/01.png)
 
-## Running end-to-end tests
+### Get Todo
+![imagen01](img/02.png)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Post Todo
+![imagen01](img/03.png)
 
-## Further help
+### Put Todo
+![imagen01](img/04.png)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Filter Todo
+![imagen01](img/05.png)
